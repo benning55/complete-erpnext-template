@@ -1,11 +1,6 @@
 ## Build custom ready to use image
 `
-docker build \                                                                                   
- --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe \
- --build-arg=FRAPPE_BRANCH=version-15 \
- --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 \
- --tag=domonit-erp-next:15 \
- --file=images/custom/Containerfile .
+docker build --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe --build-arg=FRAPPE_BRANCH=version-15 --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 --tag=domonit-erp-next:15 --file=images/custom/Containerfile .
 `
 
 ## Custom create compose file

@@ -103,7 +103,28 @@ services:
     depends_on:
       - frontend
 
-  
+  db-backup:
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      CRON_TIME: "0 2 * * *"
+      INIT_BACKUP: "1"
+      MAX_BACKUPS: "14"
+      MYSQL_HOST: db
+      MYSQL_PASSWORD: "123"
+      MYSQL_PORT: "3306"
+      MYSQL_USER: root
+      MYSQLDUMP_OPTS: "--single-transaction --quick --lock-tables=false"
+      TZ: UTC
+    image: fradelg/mysql-cron-backup
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /erp-db-backup
+        target: /backup
+        bind:
+          create_host_path: true
 
 # ERPNext requires local assets access (Frappe does not)
 volumes:
