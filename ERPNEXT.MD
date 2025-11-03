@@ -5,12 +5,7 @@ docker build --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe --build-ar
 
 ## Custom create compose file
 `
-docker compose --env-file custom.env \                                                                            
-    -f compose.yaml \
-    -f overrides/compose.mariadb.yaml \
-    -f overrides/compose.redis.yaml \
-    -f overrides/compose.noproxy.yaml \
-    config > compose.custom.yaml
+docker compose --env-file custom.env -f compose.yaml -f overrides/compose.mariadb.yaml -f overrides/compose.redis.yaml -f overrides/compose.noproxy.yaml config > compose.custom.yaml
 `
 
 ## Create new site
