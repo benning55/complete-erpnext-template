@@ -70,6 +70,7 @@ This guide walks through rebuilding the custom image so that the Frappe framewor
    bench --site frontend install-app erpnext
    bench --site frontend install-app hrms
    bench --site frontend install-app print_designer
+   bench --site frontend migrate
    ```
 4. Exit the container when finished.
 
