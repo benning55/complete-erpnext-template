@@ -23,3 +23,5 @@ docker compose -p erpnext-template exec backend bench --site frontend install-ap
 `
 Administrator
 `
+
+bench new-site erp.domonit.de --mariadb-user-host-login-scope='172.%.%.%'
