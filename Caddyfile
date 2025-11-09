@@ -1,11 +1,22 @@
-:80 {
-	# Enable logging
-	log {
-		output stdout
-		format console
-	}
+{
+    debug
+    log {
+        output stderr
+        format json
+        level DEBUG
+    }
+    servers {
+        protocols h1 h2
+        timeouts {
+            read_body 30s
+            read_header 10s
+            write 30s
+            idle 120s
+        }
+    }
+}
 
-	# Proxy everything to the nginx frontend
+erp.domonit.de {
 	reverse_proxy frontend:8080 {
 		transport http {
 			read_timeout 120s
@@ -13,4 +24,3 @@
 		}
 	}
 }
- 
