@@ -64,3 +64,19 @@ RQ Job list
 `
 docker compose -p complete-erpnext-template exec backend bench --site erp.domonit.de enable-scheduler
 `
+
+## Chrome head less
+`
+cd /home/frappe/frappe-bench
+
+bench --site <your-site-name> execute "print_designer.install.setup_chromium"
+`
+
+## How to run back up and restore
+`
+bench --site erp.domonit.de backup --with-files
+
+docker cp <container_id>:/home/frappe/frappe-bench/sites/erp.domonit.de/private/backups <path_to_host_backup_folder>
+
+bench --site erp.domonit.de --force restore 20230919_102707-site1_local-database-enc.sql.gz --with-private-files 20230919_102707-site1_local-private-files-enc.tar --with-public-files 20230919_102707-site1_local-files-enc.tarh.prt
+`
