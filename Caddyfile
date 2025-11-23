@@ -24,3 +24,12 @@ erp.domonit.de {
 		}
 	}
 }
+
+my-site.localhost {
+    reverse_proxy frontend:8080 {
+		transport http {
+			read_timeout 120s
+			write_timeout 120s
+		}
+	}
+}
