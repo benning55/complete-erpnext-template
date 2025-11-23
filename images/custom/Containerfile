@@ -39,7 +39,7 @@ RUN useradd -ms /bin/bash frappe \
     jq \
     # For MIME type detection
     media-types \
-    # Chrome headless deps for Print Designer
+    # Chrome headless deps for Print Designer (expanded)
     fonts-liberation \
     libatk-bridge2.0-0 \
     libatk1.0-0 \
@@ -55,6 +55,19 @@ RUN useradd -ms /bin/bash frappe \
     libxfixes3 \
     libxkbcommon0 \
     libxrandr2 \
+    # extra Chrome deps that slim image usually lacks
+    ca-certificates \
+    libasound2 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libglib2.0-0 \
+    libudev1 \
+    libx11-6 \
+    libxcb1 \
+    libxext6 \
+    wget \
     # NodeJS
     && mkdir -p ${NVM_DIR} \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
