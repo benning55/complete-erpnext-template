@@ -39,6 +39,22 @@ RUN useradd -ms /bin/bash frappe \
     jq \
     # For MIME type detection
     media-types \
+    # Chrome headless deps for Print Designer
+    fonts-liberation \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libatspi2.0-0 \
+    libgbm1 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    xdg-utils \
+    libvulkan1 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxfixes3 \
+    libxkbcommon0 \
+    libxrandr2 \
     # NodeJS
     && mkdir -p ${NVM_DIR} \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
