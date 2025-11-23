@@ -37,13 +37,13 @@ docker compose -f compose.custom.yaml up -d
 
 ## Create new site
 `
-docker compose -p complete-erpnext-template exec backend bench new-site frontend --mariadb-user-host-login-scope='172.%.%.%'
-docker compose -p complete-erpnext-template exec backend bench --site frontend install-app erpnext
+docker compose -p complete-erpnext-template exec backend bench new-site erp.domonit.de --mariadb-user-host-login-scope='172.%.%.%'
+docker compose -p complete-erpnext-template exec backend bench --site erp.domonit.de  install-app erpnext
 `
 
 ## Install custom app
 `
-docker compose -p complete-erpnext-template exec backend bench --site frontend install-app hrms
+docker compose -p complete-erpnext-template exec backend bench --site erp.domonit.de  install-app hrms
 `
 
 ## Default username
